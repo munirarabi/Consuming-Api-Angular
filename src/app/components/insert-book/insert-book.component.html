@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Name Book"
+        aria-label="Name Book"
+        [(ngModel)]="nameBook"
+      />
+    </div>
+
+    <div class="col">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Name author"
+        aria-label="Name author"
+        [(ngModel)]="authorBook"
+      />
+    </div>
+  </div>
+  <br />
+  <button (click)="insertBook()" type="button" class="btn btn-primary">
+    Insert Book
+  </button>
+  <hr />
+</div>

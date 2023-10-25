@@ -1,0 +1,20 @@
+<button (click)="getBook()" type="button" class="btn btn-primary">
+  List Books
+</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of listBooks">
+      <th scope="row">{{ book.id }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+    </tr>
+  </tbody>
+</table>
