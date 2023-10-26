@@ -1,9 +1,9 @@
 import { IBook } from './IBook';
 
 export interface IData {
-  data?: Array<IBook>;
-  message?: string;
   statusError: boolean;
   statusCode: number;
+  data?: Array<IBook>;
+  message?: string;
   messageError?: string;
 }

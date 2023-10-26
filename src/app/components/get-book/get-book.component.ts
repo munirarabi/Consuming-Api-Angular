@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IBook } from 'src/app/interfaces/IBook';
-import { IData } from 'src/app/interfaces/IData';
-import { ServiceApiService } from 'src/app/service-api.service';
+import { ServiceApiService } from 'src/app/services/service-api.service';
 
 @Component({
   selector: 'app-get-book',
@@ -11,18 +10,19 @@ import { ServiceApiService } from 'src/app/service-api.service';
 export class GetBookComponent {
   constructor(private ServiceApiService: ServiceApiService) {}
 
-  listBooks: any = [];
+  listBooks: Array<IBook> | undefined;
 
   getBook() {
-    this.ServiceApiService.getData().subscribe(
-      (response) => {
+    this.ServiceApiService.getData().subscribe({
+      next: (response) => {
         this.listBooks = response.data;
-        console.log(this.listBooks);
+        // console.log(response);
+        // console.log(this.listBooks);
         // console.log('GET realizado com sucesso', response);
       },
-      (error) => {
+      error: (error) => {
         console.error('Erro ao fazer o GET', error);
-      }
-    );
+      },
+    });
   }
 }

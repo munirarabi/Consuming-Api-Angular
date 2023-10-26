@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ServiceApiService } from 'src/app/service-api.service';
+import { IBook } from 'src/app/interfaces/IBook';
+import { ServiceApiService } from 'src/app/services/service-api.service';
 
 @Component({
   selector: 'app-insert-book',
@@ -13,18 +14,18 @@ export class InsertBookComponent {
   authorBook: string = '';
 
   insertBook() {
-    const data = {
+    const bookData: IBook = {
       title: this.nameBook,
       author: this.authorBook,
     };
 
-    this.ServiceApiService.insertData(data).subscribe(
-      (response) => {
+    this.ServiceApiService.insertData(bookData).subscribe({
+      next: (response) => {
         console.log('POST realizado com sucesso', response);
       },
-      (error) => {
+      error: (error) => {
         console.error('Erro ao fazer o POST', error);
-      }
-    );
+      },
+    });
   }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IData } from './interfaces/IData';
+import { IData } from '../interfaces/IData';
 import { Observable } from 'rxjs';
+import { IBook } from '../interfaces/IBook';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,11 @@ export class ServiceApiService {
     return this.http.get<IData>(this.apiUrl);
   }
 
-  insertData(data: any) {
-    return this.http.post(this.apiUrl, data);
+  insertData(bookData: IBook): Observable<IData> {
+    return this.http.post<IData>(this.apiUrl, bookData);
   }
+
+  // updateData(data: { title: string; author: string }): Observable<IData> {
+  //   return this.http.post<IData>(this.apiUrl, data);
+  // }
 }
