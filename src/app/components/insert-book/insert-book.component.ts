@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { IBook } from 'src/app/interfaces/IBook';
+
 import { ServiceApiService } from 'src/app/services/service-api.service';
 
 @Component({
@@ -10,10 +12,10 @@ import { ServiceApiService } from 'src/app/services/service-api.service';
 export class InsertBookComponent {
   constructor(private ServiceApiService: ServiceApiService) {}
 
-  nameBook: string = '';
-  authorBook: string = '';
+  public nameBook: string = '';
+  public authorBook: string = '';
 
-  insertBook() {
+  public insertBook() {
     const bookData: IBook = {
       title: this.nameBook,
       author: this.authorBook,

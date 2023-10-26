@@ -13,7 +13,13 @@ import { UpdateBookComponent } from './components/update-book/update-book.compon
 import { DeleteBookComponent } from './components/delete-book/delete-book.component';
 
 @NgModule({
-  declarations: [AppComponent, InsertBookComponent, GetBookComponent, UpdateBookComponent, DeleteBookComponent],
+  declarations: [
+    AppComponent,
+    InsertBookComponent,
+    GetBookComponent,
+    UpdateBookComponent,
+    DeleteBookComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

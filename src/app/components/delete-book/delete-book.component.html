@@ -1,1 +1,45 @@
-<p>delete-book works!</p>
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Id Book"
+      aria-label="Id Book"
+      [(ngModel)]="idBookDeleted"
+    />
+  </div>
+</div>
+
+<br />
+
+<button (click)="deleteBook()" type="button" class="btn btn-danger">
+  Delete Book
+</button>
+
+<hr />
+
+<button
+  (click)="deleteAllBooks()"
+  type="button"
+  class="btn btn-danger btn-delete-all"
+>
+  Delete All Books
+</button>
+<hr />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of listBooks">
+      <th scope="row">{{ book.id }}</th>
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+    </tr>
+  </tbody>
+</table>

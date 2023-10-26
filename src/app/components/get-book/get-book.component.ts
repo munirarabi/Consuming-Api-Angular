@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { IBook } from 'src/app/interfaces/IBook';
+
 import { ServiceApiService } from 'src/app/services/service-api.service';
 
 @Component({
@@ -7,12 +9,16 @@ import { ServiceApiService } from 'src/app/services/service-api.service';
   templateUrl: './get-book.component.html',
   styleUrls: ['./get-book.component.css'],
 })
-export class GetBookComponent {
+export class GetBookComponent implements OnInit {
   constructor(private ServiceApiService: ServiceApiService) {}
 
-  listBooks: Array<IBook> | undefined;
+  ngOnInit(): void {
+    this.getBook();
+  }
 
-  getBook() {
+  public listBooks: Array<IBook> | undefined;
+
+  public getBook() {
     this.ServiceApiService.getData().subscribe({
       next: (response) => {
         this.listBooks = response.data;

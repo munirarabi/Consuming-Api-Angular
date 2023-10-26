@@ -3,7 +3,7 @@ import { IBook } from './IBook';
 export interface IData {
   statusError: boolean;
   statusCode: number;
-  data?: Array<IBook>;
   message?: string;
+  data?: Array<IBook>;
   messageError?: string;
 }
