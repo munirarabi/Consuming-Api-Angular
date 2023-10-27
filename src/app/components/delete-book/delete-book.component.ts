@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IBook } from 'src/app/interfaces/IBook';
 
-import { ServiceApiService } from 'src/app/services/service-api.service';
+import { ServiceApi } from 'src/app/services/api/service-api.service';
 
 @Component({
   selector: 'app-delete-book',
@@ -10,7 +10,7 @@ import { ServiceApiService } from 'src/app/services/service-api.service';
   styleUrls: ['./delete-book.component.css'],
 })
 export class DeleteBookComponent implements OnInit {
-  constructor(private ServiceApiService: ServiceApiService) {}
+  constructor(private ServiceApiService: ServiceApi) {}
 
   ngOnInit(): void {
     this.getBook();

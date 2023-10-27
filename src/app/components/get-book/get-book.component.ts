@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IBook } from 'src/app/interfaces/IBook';
 
-import { ServiceApiService } from 'src/app/services/service-api.service';
+import { ServiceApi } from 'src/app/services/api/service-api.service';
+import { ServiceSpinner } from 'src/app/services/spinner/service-spinner';
 
 @Component({
   selector: 'app-get-book',
@@ -10,21 +11,37 @@ import { ServiceApiService } from 'src/app/services/service-api.service';
   styleUrls: ['./get-book.component.css'],
 })
 export class GetBookComponent implements OnInit {
-  constructor(private ServiceApiService: ServiceApiService) {}
+  constructor(
+    private ServiceApiService: ServiceApi,
+    private SpinnerService: ServiceSpinner
+  ) {}
+
+  public listBooks: Array<IBook> | undefined;
+
+  showSpinner() {
+    this.SpinnerService.showSpinner = true;
+  }
+
+  hideSpinner() {
+    this.SpinnerService.showSpinner = false;
+  }
+
+  clearListBooks() {
+    this.listBooks = [];
+  }
 
   ngOnInit(): void {
     this.getBook();
   }
 
-  public listBooks: Array<IBook> | undefined;
-
   public getBook() {
+    this.clearListBooks();
+    this.showSpinner();
+
     this.ServiceApiService.getData().subscribe({
       next: (response) => {
         this.listBooks = response.data;
-        // console.log(response);
-        // console.log(this.listBooks);
-        // console.log('GET realizado com sucesso', response);
+        this.hideSpinner();
       },
       error: (error) => {
         console.error('Erro ao fazer o GET', error);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { IBook } from 'src/app/interfaces/IBook';
 
-import { ServiceApiService } from 'src/app/services/service-api.service';
+import { ServiceApi } from 'src/app/services/api/service-api.service';
 
 @Component({
   selector: 'app-insert-book',
@@ -10,7 +10,7 @@ import { ServiceApiService } from 'src/app/services/service-api.service';
   styleUrls: ['./insert-book.component.css'],
 })
 export class InsertBookComponent {
-  constructor(private ServiceApiService: ServiceApiService) {}
+  constructor(private ServiceApiService: ServiceApi) {}
 
   public nameBook: string = '';
   public authorBook: string = '';

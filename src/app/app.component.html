@@ -33,4 +33,17 @@
 
 <div class="container">
   <router-outlet></router-outlet>
+
+  <!-- <button (click)="toggleSpinner()">Toggle Spinner</button> -->
+
+  <div class="loaging">
+    <div
+      class="spinner-border"
+      [ngClass]="{ 'd-none': !spinnerService.showSpinner }"
+      style="width: 5rem; height: 5rem"
+      role="status"
+    >
+      <span class="sr-only"></span>
+    </div>
+  </div>
 </div>

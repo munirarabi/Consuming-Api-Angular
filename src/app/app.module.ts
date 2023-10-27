@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { ServiceSpinner } from './services/spinner/service-spinner';
+
 import { FormsModule } from '@angular/forms';
 import { InsertBookComponent } from './components/insert-book/insert-book.component';
 import { GetBookComponent } from './components/get-book/get-book.component';
@@ -21,7 +23,7 @@ import { DeleteBookComponent } from './components/delete-book/delete-book.compon
     DeleteBookComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [ServiceSpinner],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
